@@ -1,0 +1,19 @@
+[versions]
+spring-boot = "4.0.0"
+lombok = "9.0.0"
+spring-retry = "2.0.12"
+
+[plugins]
+java = { id = "java" }
+application = { id = "application" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
+
+[libraries]
+# Spring Boot
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+spring-boot-starter-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "spring-boot" }
+spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure", version.ref = "spring-boot" }
+# Spring
+spring-retry = { module = "org.springframework.retry:spring-retry", version.ref = "spring-retry" }

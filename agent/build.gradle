@@ -1,0 +1,17 @@
+subprojects {
+    apply plugin: 'java-library'
+
+    project.version = project(':agent').version
+
+    java {
+        withSourcesJar()
+    }
+
+    compileJava {
+        options.release.set(25)
+    }
+
+    sourcesJar {
+        manifest = jar.manifest
+    }
+}

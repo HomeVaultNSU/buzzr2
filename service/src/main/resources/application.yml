@@ -1,0 +1,26 @@
+server:
+  port: ${AGENT_PORT}
+
+agent:
+  id: ${AGENT_ID}
+  port: ${AGENT_PORT}
+  request-timeout-ms: 3000
+  quorum:
+    read: 2
+    write: 2
+  discovery:
+    broadcast-interval-ms: 10000
+    health-check-ms: 20000
+    threshold-ms: 10000
+  retry:
+    max-retries: 3
+    delay-ms: 1000
+    multiplier: 2.0
+  listener:
+    listen-interval-ms: 5000
+
+logging:
+  level:
+    ru.nsu.ccfit.buzzr.discovery.core.dao.impl.*: OFF
+    ru.nsu.ccfit.buzzr.discovery.core.discovery.*: OFF
+    ru.nsu.ccfit.buzzr.discovery.core.quorum.AgentQuorumBaseService: OFF

@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  agent1:
+    image: my-agent-service
+    environment:
+      AGENT_ID: agent-1
+      AGENT_PORT: 9001
+    networks:
+      - agents-net
+
+  agent2:
+    image: my-agent-service
+    environment:
+      AGENT_ID: agent-2
+      AGENT_PORT: 9002
+    networks:
+      - agents-net
+
+  agent3:
+    image: my-agent-service
+    environment:
+      AGENT_ID: agent-3
+      AGENT_PORT: 9003
+    networks:
+      - agents-net
+
+#  agent4:
+#    image: my-agent-service
+#    environment:
+#      AGENT_ID: agent-4
+#      AGENT_PORT: 9004
+#    networks:
+#      - agents-net
+#
+#  agent5:
+#    image: my-agent-service
+#    environment:
+#      AGENT_ID: agent-5
+#      AGENT_PORT: 9005
+#    networks:
+#      - agents-net
+
+networks:
+  agents-net:
+    driver: bridge

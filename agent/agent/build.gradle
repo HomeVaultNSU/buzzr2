@@ -1,0 +1,20 @@
+plugins {
+    alias(libs.plugins.java)
+    alias(libs.plugins.lombok)
+    alias(libs.plugins.spring.boot)
+}
+
+bootJar {
+    enabled = false
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+dependencies {
+    implementation libs.spring.boot.starter.web
+    implementation libs.spring.boot.starter.validation
+}

@@ -1,0 +1,23 @@
+plugins {
+    alias(libs.plugins.java)
+    alias(libs.plugins.lombok)
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.application)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+dependencies {
+    implementation project(":agent:agent-spring-boot-starter")
+
+    implementation libs.spring.boot.starter.web
+    implementation libs.spring.boot.starter.validation
+}
+
+test {
+    useJUnitPlatform()
+}

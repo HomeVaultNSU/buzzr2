@@ -17,7 +17,7 @@ public class Demo {
 
     private final AgentMessageProducer agentMessageProducer;
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 8_000, initialDelay = 10_000)
     private void testWrite() {
         String targetId = "agent-2";
 

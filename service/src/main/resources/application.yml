@@ -21,6 +21,6 @@ agent:
 
 logging:
   level:
-    ru.nsu.ccfit.buzzr.discovery.core.dao.impl.*: OFF
-    ru.nsu.ccfit.buzzr.discovery.core.discovery.*: OFF
-    ru.nsu.ccfit.buzzr.discovery.core.quorum.AgentQuorumBaseService: OFF
+    root: OFF
+    ru.nsu.ccfit.buzzr.discovery.core.reader.DefaultAgentMessageConsumer: INFO
+    ru.nsu.ccfit.buzzr.discovery.core.writer.AgentMessageProducer: INFO

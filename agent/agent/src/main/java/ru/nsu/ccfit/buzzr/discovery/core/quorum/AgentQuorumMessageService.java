@@ -54,7 +54,7 @@ public class AgentQuorumMessageService extends AgentQuorumBaseService {
     public QuorumResult<Void> write(AgentMessageDto agentMessageDto) {
         QuorumResult<Map<InstanceInfo, String>> quorumResult = sendAsyncUntilQuorum(
                 instanceRegistry.getInstances().values(),
-                properties.getQuorum().getWrite(),
+                properties.getQuorum().getWrite() - 1, // 1 - запись локально
                 instanceInfo -> {
                     AgentClient client = CLIENT_FACTORY.apply(instanceInfo);
                     return client.updateMessage(agentMessageDto);

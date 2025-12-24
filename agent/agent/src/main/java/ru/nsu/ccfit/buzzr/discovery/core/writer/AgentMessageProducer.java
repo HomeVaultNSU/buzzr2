@@ -1,6 +1,7 @@
 package ru.nsu.ccfit.buzzr.discovery.core.writer;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import ru.nsu.ccfit.buzzr.discovery.api.dto.AgentMessageDto;
 import ru.nsu.ccfit.buzzr.discovery.config.AgentConfigurationProperties;
@@ -25,6 +26,7 @@ public class AgentMessageProducer {
 
     private final AgentMessageService agentMessageService;
 
+    @Synchronized
     public QuorumResult<Void> sendMessage(String dstId, String message) {
 
         Long seq = agentCounterService.getCounter(properties.getId(), dstId).getSeq() + 1;
@@ -38,6 +40,9 @@ public class AgentMessageProducer {
                 .build();
 
         agentMessageService.update(messageDto);
+
+        log.info("sending a message: {} ...", messageDto.toString());
+
         QuorumResult<Void> quorumResult = agentQuorumMessageService.write(messageDto);
 
         if (quorumResult.isSuccess()) {
